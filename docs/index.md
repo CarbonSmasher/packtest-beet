@@ -1,4 +1,4 @@
-# FIXME
+# PackTest Beet Plugin
 
 ```{toctree}
 :hidden:
@@ -10,8 +10,8 @@ changelog
 :caption: Project links
 :hidden:
 
-GitHub repository <https://github.com/FIXME/FIXME>
-PyPI package <https://pypi.org/project/FIXME>
+GitHub repository <https://github.com/CarbonSmasher/packtest_beet>
+PyPI package <https://pypi.org/project/packtest_beet>
 ```
 
 ```{eval-rst}

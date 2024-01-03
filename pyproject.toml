@@ -1,29 +1,26 @@
 [tool.poetry]
-name = "FIXME"
+name = "packtest_beet"
 version = "0.0.0"
-description = "FIXME"
-authors = ["FIXME"]
+description = "Beet plugin for PackTest"
+authors = ["CarbonSmasher", "Misode"]
 license = "MIT"
 
-homepage = "https://github.com/FIXME/FIXME"
-repository = "https://github.com/FIXME/FIXME"
-documentation = "https://FIXME.github.io/FIXME/"
+homepage = "https://github.com/CarbonSmasher/packtest_beet"
+repository = "https://github.com/CarbonSmasher/packtest_beet"
+documentation = "https://github.com/CarbonSmasher/packtest_beet"
 
 readme = "README.md"
 
-keywords = [
-  "beet",
-  "minecraft",
-  "FIXME",
-  "FIXME",
-  "FIXME"
-]
+keywords = ["beet", "minecraft", "packtest"]
 
-include = ["FIXME/py.typed"]
+packages = [{ include = "packtest_beet" }]
+
+include = ["packtest_beet/py.typed"]
 
 [tool.poetry.dependencies]
-python = "^3.8"
+python = "^3.10"
 beet = ">=0.45.3"
+mecha = { version = ">=0.86.0", optional = true }
 
 [tool.poetry.dev-dependencies]
 pytest = "^6.2.5"
@@ -36,7 +33,7 @@ lectern = ">=0.18.1"
 
 [tool.pytest.ini_options]
 minversion = "6.0"
-addopts = "tests FIXME --doctest-modules"
+addopts = "tests packtest_beet --doctest-modules"
 doctest_optionflags = "NORMALIZE_WHITESPACE IGNORE_EXCEPTION_DETAIL ELLIPSIS"
 
 [tool.black]
@@ -48,17 +45,23 @@ profile = "black"
 
 [tool.semantic_release]
 branch = "main"
-version_variable = ["FIXME/__init__.py:__version__"]
+version_variable = ["packtest_beet/__init__.py:__version__"]
 version_toml = "pyproject.toml:tool.poetry.version"
 major_on_zero = false
-build_command = "poetry build && poetry run mudkip build --update-gh-pages --repository https://x-access-token:${GH_TOKEN}@github.com/FIXME/FIXME"
+build_command = "poetry build && poetry run mudkip build --update-gh-pages --repository https://x-access-token:${GH_TOKEN}@github.com/CarbonSmasher/packtest_beet"
 
 [tool.mudkip]
 preset = "furo"
 
 [tool.mudkip.override]
-html_title = "FIXME"
+html_title = "packtest_beet"
 suppress_warnings = ["myst.header"]
+
+[tool.poetry.plugins.beet]
+commands = "packtest_beet.commands"
+
+[tool.poetry.scripts]
+packtest_beet = "packtest_beet:main"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]

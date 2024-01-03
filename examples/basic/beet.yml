@@ -1,2 +1,7 @@
+require:
+  - packtest_beet
+output: build
+data_pack:
+  load: [ "pack" ]
 pipeline:
-  - FIXME
+  - mecha
